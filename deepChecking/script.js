@@ -1,12 +1,12 @@
 window.onload = () => {
-    // console.log('NaN: ', deepEqual(NaN, undefined));
+    console.log('NaN: ', deepEqual(NaN, NaN));
     // console.log('numbers: ', deepEqual(0, 1));
     // console.log('strings: ', deepEqual('ab', 'c'));
     // console.log('null: ', deepEqual(null, null));
     // console.log('undefined: ', deepEqual(undefined, null));
     // console.log('Arrays: ', deepEqual([1, 2, [3,4, {a: 'abc'}]], [1, 2, [3,4, {a: 'abc'}]]));
-    console.log('Objects: ', deepEqual({a:34, b:'54'}, {a:34, b:54}));
-    // console.log(typeof NaN)
+    // console.log('Objects: ', deepEqual({a:34, b:'54'}, {a:34, b:54}));
+    // console.log(NaN instanceof Object)
 }
 
 function deepEqual(a, b){
@@ -17,8 +17,9 @@ function deepEqual(a, b){
         return a === b;
     }
 
-    // -------------------------------check Number
+    // -------------------------------check String
     if(typeof a === "string" && typeof b === "string"){
+        console.log('stringggg');
         return a === b;
     }
 
@@ -28,7 +29,7 @@ function deepEqual(a, b){
         isNaN(a) && isNaN(b) &&
         a !== undefined && b !== undefined &&
         (!Array.isArray(a) || !Array.isArray(b)) &&
-        !a instanceof Object && !b instanceof Object
+        a instanceof Object === false && b instanceof Object === false
     ){
         console.log('nannnnn')
         return true;
@@ -107,7 +108,7 @@ function deepEqual(a, b){
 
     }
 }
-//
+
 // let obj = {a: 1, b: 2}
 // const keys = Object.keys(obj)
 //
